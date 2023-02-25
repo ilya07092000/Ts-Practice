@@ -14,10 +14,18 @@ const arr1: string[] = ['str1', 'str2'];
 const arr2: [string, number] = ['str', 123]; // exact two values and exact types TUPLES
 const arr3: (string | number)[] = [1, 2, 'str'];
 
-function test() {}
-const funcVar: Function = test;
+// FUNCTION ------
 
-// ENUM
+function test() {}
+const funcVar: Function = test; // funcVar can store all functions
+
+let functionType: (
+	param1: number,
+	param2: number
+) => number; /* defined variable "functionType" 
+which can store ONLY functions which takes two params (number, number) and return the number */
+
+// ENUM ------
 enum Roles {
 	ADMIN,
 	USER,
