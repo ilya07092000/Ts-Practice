@@ -20,4 +20,22 @@ function mergeObjects<T extends object, U extends object>(objA: T, objB: U) {
 const mergedObjs3 = mergeObjects({ name: 'Ilya' }, { age: 22 });
 mergedObjs3.name;
 
+//
+
+type Lengthy = {
+	length: number;
+};
+
+function countAndDescribe<T extends Lengthy>(element: T): [T, string] {
+	const descriptionText = element?.length
+		? `Got ${element.length} elements`
+		: 'Got No Value...';
+
+	return [element, descriptionText];
+}
+// console.log(countAndDescribe({ name: 'Ilya' })); // does not work because obj do not have length prop
+countAndDescribe('some string');
+countAndDescribe(['string1', 'string2']);
+countAndDescribe('');
+
 export {};
