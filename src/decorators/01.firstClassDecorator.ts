@@ -13,7 +13,20 @@ function Logger(logString: string) {
 	};
 }
 
+function WithTemplate(template: string, hookId: string) {
+	return function (_: Function) {
+		const element = document.querySelector(hookId);
+		const person = new Person();
+
+		if (element) {
+			element.innerHTML = template;
+			element.innerHTML += person.name;
+		}
+	};
+}
+
 @Logger('Logging Person')
+@WithTemplate('<p>Some paragraph to render</p>', '#render-app')
 class Person {
 	name = 'Ilya';
 
